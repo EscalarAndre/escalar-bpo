@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — Escalar BPO</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f0ece6;color:#1a1a1a;}
+.nav{background:#1f2d32;border-bottom:3px solid #009d94;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.nlogo{font-size:15px;font-weight:700;color:#fff;letter-spacing:.06em;}.nlogo span{color:#009d94;}
+.nsub{font-family:'Playfair Display',serif;font-size:10px;color:rgba(255,255,255,.32);font-style:italic;margin-top:1px;}
+.nbtn{background:#009d94;color:#1f2d32;border:none;border-radius:5px;padding:8px 18px;font-weight:700;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.gbtn{background:transparent;color:#009d94;border:1.5px solid #009d94;border-radius:5px;padding:7px 15px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.dbtn{background:transparent;color:#dc2626;border:1.5px solid rgba(220,38,38,.3);border-radius:5px;padding:7px 12px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.sbtn{background:transparent;color:#555;border:1.5px solid #ddd;border-radius:5px;padding:7px 13px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.main{max-width:960px;margin:0 auto;padding:28px 22px 60px;}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px;}
+.stat{background:#fff;border:1.5px solid #e8e4de;border-radius:7px;padding:14px 16px;}
+.sv{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#009d94;}
+.sl{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:3px;}
+.pipe{background:#fff;border:1.5px solid #e8e4de;border-radius:7px;padding:15px 18px;margin-bottom:18px;}
+.pipe-t{font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.pipe-row{display:flex;border:1.5px solid #e8e4de;border-radius:6px;overflow:hidden;}
+.ps{flex:1;padding:12px 14px;border-right:1.5px solid #e8e4de;text-align:center;}
+.ps:last-child{border-right:none;}
+.ps-l{font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+.ps-v{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
+.ps-s{font-size:12px;font-weight:600;margin-top:2px;}
+.pcard{background:#fff;border:1.5px solid #e8e4de;border-radius:7px;padding:14px 18px;margin-bottom:10px;}
+.pcard-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.pav{width:42px;height:42px;border-radius:7px;background:rgba(0,157,148,.12);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#009d94;flex-shrink:0;font-family:'Playfair Display',serif;}
+.pinfo{flex:1;min-width:160px;}
+.pname{font-weight:700;font-size:14px;color:#1a1a1a;margin-bottom:2px;}
+.pmeta{font-size:11px;color:#aaa;}
+.pact{display:flex;gap:7px;align-items:center;flex-wrap:wrap;}
+.badge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;display:inline-block;border:1.5px solid;}
+.br{color:#888;border-color:#ddd;background:#fafaf8;}
+.be{color:#009d94;border-color:rgba(0,157,148,.3);background:rgba(0,157,148,.08);}
+.ba{color:#16a34a;border-color:rgba(22,163,74,.3);background:rgba(22,163,74,.07);}
+.bp{color:#dc2626;border-color:rgba(220,38,38,.3);background:rgba(220,38,38,.08);}
+.ssel{background:#fafaf8;border:1.5px solid #e0dbd4;color:#666;font-size:11px;padding:5px 8px;border-radius:5px;font-family:'DM Sans',sans-serif;cursor:pointer;}
+.empty{text-align:center;padding:40px;color:#aaa;font-size:13px;background:#fff;border:1.5px solid #e8e4de;border-radius:7px;}
+/* FUP */
+.fup-section{margin-top:12px;border-top:1.5px solid #f0ece6;padding-top:10px;}
+.fup-lbl{font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.fup-row{display:flex;gap:6px;flex-wrap:wrap;}
+.fup-box{flex:1;min-width:90px;border:1.5px solid #e8e4de;border-radius:6px;padding:9px 10px;background:#fafaf8;position:relative;transition:border .15s;}
+.fup-box.done{border-color:#009d94;background:rgba(0,157,148,.05);}
+.fup-box.pend{border-color:#f0c030;background:rgba(240,192,48,.06);}
+.fup-num{font-size:10px;font-weight:700;color:#009d94;text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
+.fup-dt{width:100%;border:none;background:transparent;font-size:11px;color:#555;font-family:'DM Sans',sans-serif;margin-bottom:3px;outline:none;}
+.fup-nt{width:100%;border:none;background:transparent;font-size:10px;color:#777;font-family:'DM Sans',sans-serif;resize:none;outline:none;line-height:1.4;min-height:26px;}
+.fup-dot{width:7px;height:7px;border-radius:50%;position:absolute;top:9px;right:9px;background:#e0dbd4;}
+.fup-dot.done{background:#009d94;}
+.fup-dot.pend{background:#f0c030;}
+.fup-sts{display:flex;gap:8px;margin-top:5px;}
+.fup-st{font-size:10px;color:#aaa;cursor:pointer;display:flex;align-items:center;gap:3px;}
+/* Qualificação */
+.qual-tabs{display:flex;gap:8px;margin-bottom:12px;}
+.qual-tab{flex:1;padding:10px 8px;border-radius:6px;border:1.5px solid #e8e4de;background:#fafaf8;cursor:pointer;text-align:center;transition:all .15s;}
+.qual-tab.on{background:#1f2d32;border-color:#1f2d32;}
+.qual-tab-t{font-size:12px;font-weight:700;color:#555;}
+.qual-tab.on .qual-tab-t{color:#009d94;}
+.qual-tab-s{font-size:10px;color:#aaa;margin-top:2px;}
+.qual-tab.on .qual-tab-s{color:rgba(255,255,255,.45);}
+.qual-desc{background:#f8faf9;border-left:3px solid #009d94;border-radius:0 5px 5px 0;padding:12px 16px;font-size:13px;color:#2d3748;line-height:1.7;font-weight:500;margin-bottom:14px;}
+/* Form */
+.fcard{background:#fff;border:1.5px solid #e8e4de;border-radius:8px;overflow:hidden;}
+.prog{height:4px;background:#e8e4de;}
+.pf{height:100%;background:#009d94;transition:width .4s;}
+.fbody{padding:26px 28px;}
+.sey{font-size:10px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:3px;}
+.stt{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:3px;}
+.ssb{font-size:12px;color:#aaa;margin-bottom:20px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.lbl{font-size:10px;color:#777;text-transform:uppercase;letter-spacing:.08em;font-weight:600;display:block;margin-bottom:5px;}
+input,select,textarea{background:#fafaf8;border:1.5px solid #e0dbd4;color:#1a1a1a;font-size:13px;padding:9px 12px;border-radius:5px;outline:none;width:100%;font-family:'DM Sans',sans-serif;transition:border .18s;}
+input:focus,select:focus,textarea:focus{border-color:#009d94;background:#fff;}
+.fld{margin-bottom:13px;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:5px;}
+.chip{padding:6px 13px;border-radius:5px;font-size:12px;font-weight:600;border:1.5px solid #e0dbd4;background:#fafaf8;color:#888;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.chip.on{border-color:#009d94;background:rgba(0,157,148,.08);color:#009d94;}
+.obj-chip{padding:6px 12px;border-radius:5px;font-size:12px;font-weight:500;border:1.5px solid #e0dbd4;background:#fafaf8;color:#666;cursor:pointer;display:inline-block;margin:3px 3px 0 0;transition:all .15s;font-family:'DM Sans',sans-serif;}
+.obj-chip.on{border-color:#009d94;background:rgba(0,157,148,.08);color:#009d94;font-weight:600;}
+.cin{background:#fafaf8;border:1.5px solid #e8e4de;border-radius:6px;padding:14px 16px;margin-bottom:13px;}
+.mbt{flex:1;padding:15px 12px;border-radius:6px;cursor:pointer;text-align:center;border:1.5px solid #e0dbd4;background:#fafaf8;color:#888;font-weight:700;font-size:13px;font-family:'DM Sans',sans-serif;transition:all .18s;}
+.mbt.on{border-color:#009d94;border-width:2px;background:rgba(0,157,148,.08);color:#009d94;}
+.fnav{display:flex;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1.5px solid #f0ece6;}
+/* OnePage */
+.op{background:#fff;border:1.5px solid #e8e4de;border-radius:8px;overflow:hidden;}
+.ops{padding:22px 42px;border-bottom:2px solid #f0ece6;}
+.ops:last-child{border-bottom:none;}
+.opsa{background:#fafaf8;}
+.opsh{display:flex;align-items:center;gap:10px;margin-bottom:15px;}
+.opsn{font-size:10px;font-weight:700;color:#009d94;letter-spacing:.14em;min-width:22px;}
+.opsl{flex:1;height:1.5px;background:#e8e4de;}
+.opst{font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;}
+.res{font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.8;color:#2d3748;border-left:3px solid #009d94;padding:13px 18px;background:#f8faf9;border-radius:0 5px 5px 0;font-weight:500;}
+.ctx-g{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px;}
+.ctx-i{padding:10px 13px;background:#f4f2ee;border-radius:5px;border-left:2px solid #009d94;}
+.ctx-k{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;font-weight:600;}
+.ctx-v{font-size:13px;font-weight:600;color:#1a1a1a;}
+.op-tag{font-size:11px;background:#f0faf8;border:1.5px solid rgba(0,157,148,.2);border-radius:3px;padding:3px 9px;color:#1a1a1a;display:inline-block;margin:2px;font-weight:500;}
+.ok{display:flex;gap:10px;align-items:flex-start;padding:9px 13px;background:#f0faf8;border:1.5px solid #c8e8e5;border-radius:5px;margin-bottom:5px;font-size:13px;color:#222;line-height:1.6;}
+.nok{display:flex;gap:10px;align-items:flex-start;padding:9px 13px;background:#fdf6f3;border:1.5px solid #e8cfc5;border-radius:5px;margin-bottom:5px;font-size:13px;color:#222;line-height:1.6;}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.rc{background:#fff;border-radius:5px;padding:13px 15px;border:1.5px solid #e8e4de;border-top:2.5px solid #009d94;}
+.rc-t{font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
+.rc-d{font-size:12px;color:#888;line-height:1.6;}
+.tcg{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+.tc{border-radius:6px;padding:11px 7px;text-align:center;border:1.5px solid #e8e4de;background:#fafaf8;}
+.tc.hi{background:#009d94;border-color:#009d94;}
+.tc-a{width:32px;height:32px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:13px;background:#e8e4de;}
+.tc.hi .tc-a{background:rgba(255,255,255,.2);}
+.tc-r{font-size:10px;font-weight:600;color:#555;line-height:1.4;}
+.tc.hi .tc-r{color:#fff;}
+.tc-sub{font-size:9px;color:rgba(255,255,255,.65);margin-top:2px;}
+.ot{width:100%;border-collapse:collapse;font-size:12px;}
+.ot th{padding:8px 11px;text-align:left;background:#f4f2ee;color:#555;font-weight:700;font-size:9px;text-transform:uppercase;letter-spacing:.07em;border-bottom:2px solid #e0dbd4;}
+.ot td{padding:9px 11px;border-bottom:1.5px solid #f0ece6;color:#333;}
+.ot .hi{color:#009d94;font-weight:700;}
+.ot .bold-row td{font-weight:700;color:#1a1a1a;background:#f4f2ee;}
+.conv-pct{font-size:10px;color:#bbb;font-weight:400;margin-left:4px;}
+.tnote{font-family:'DM Sans',sans-serif;font-size:14px;color:#2d3748;margin-top:13px;line-height:1.8;border-left:3px solid #009d94;padding:10px 16px;background:#f8faf9;font-weight:500;}
+.esf{border:1.5px solid #e8e4de;border-radius:7px;overflow:hidden;margin-bottom:16px;}
+.esf-header{background:#f4f2ee;padding:12px 16px;text-align:center;border-bottom:1.5px solid #e8e4de;}
+.esf-header-t{font-size:10px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin-bottom:3px;}
+.esf-header-s{font-family:'DM Sans',sans-serif;font-size:13px;color:#555;font-style:normal;font-weight:600;}
+.esf-body{display:grid;grid-template-columns:1fr 1.5px 1fr 1.5px 1fr;}
+.esf-div{background:#e8e4de;}
+.esf-item{padding:18px 12px;text-align:center;}
+.esf-v{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:#009d94;line-height:1;}
+.esf-l{font-size:10px;color:#777;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-top:5px;}
+.esf-s{font-size:11px;color:#aaa;margin-top:2px;}
+.ib{background:#1f2d32;border-radius:8px;padding:36px 40px;text-align:center;border:2px solid #2d4048;position:relative;}
+.ib-val{font-family:'DM Sans',sans-serif;font-size:52px;font-weight:700;color:#ffffff;line-height:1;margin:8px 0;letter-spacing:-.02em;}
+.ib-label{font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.12em;font-weight:600;}
+.ib-sub{font-size:12px;color:rgba(255,255,255,.4);margin-top:10px;}
+.ib-validity{position:absolute;top:20px;right:24px;text-align:right;}
+.ib-validity-l{font-size:9px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.ib-validity-v{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.75);}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.ci2{padding:8px 0;border-bottom:1.5px solid #f0ece6;}
+.ci2:nth-child(odd){padding-right:18px;border-right:1.5px solid #f0ece6;}
+.ci2:nth-child(even){padding-left:18px;}
+.ck2{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px;font-weight:600;}
+.cv2{font-size:12px;font-weight:600;color:#1a1a1a;}
+.ct{font-size:11px;background:#fff;border:1.5px solid #e0dbd4;border-radius:3px;padding:4px 9px;color:#555;font-weight:500;display:inline-block;margin:2px;}
+.ct-ativo{font-size:11px;background:#1f2d32;border:1.5px solid #009d94;border-radius:3px;padding:4px 9px;color:#009d94;font-weight:700;display:inline-block;margin:2px;}
+.seg-title{font-size:10px;font-weight:700;color:#009d94;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:5px;border-bottom:1.5px solid #e8e4de;}
+.ni{display:flex;gap:14px;align-items:flex-start;margin-bottom:11px;padding-bottom:11px;border-bottom:1.5px solid #f0ece6;}
+.ni:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.ni-n{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#009d94;min-width:26px;line-height:1;}
+.ni-t{font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:2px;}
+.ni-d{font-size:12px;color:#777;line-height:1.6;}
+.par{display:flex;border:1.5px solid #e8e4de;border-radius:6px;overflow:hidden;}
+.pa{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 10px;border-right:1.5px solid #f0ece6;text-align:center;}
+.pa:last-child{border-right:none;}
+.pa-d{font-size:10px;color:#555;margin-top:5px;font-weight:700;}
+.jb{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 13px;background:#f4f2ee;border:1.5px solid #e0dbd4;border-radius:5px;margin-top:13px;font-size:12px;font-weight:600;color:#009d94;width:fit-content;}
+.jp{display:none;margin-top:12px;padding:15px;background:#f9f7f4;border:1.5px solid #e8e4de;border-radius:5px;}
+.jp.open{display:block;}
+.jw{display:flex;gap:3px;align-items:flex-start;}
+.jc{flex:1;}
+.ja{padding:11px 3px;color:#009d94;font-size:13px;flex-shrink:0;}
+.jn{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:2px;}
+.jt{font-size:10px;color:#009d94;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.jl{font-size:11px;color:#666;line-height:1.7;padding-left:11px;position:relative;margin-bottom:2px;}
+.jl::before{content:'·';position:absolute;left:2px;color:#009d94;font-weight:700;}
+.of{background:#1f2d32;padding:18px 42px;display:flex;align-items:center;justify-content:space-between;border-top:3px solid #009d94;}
+.ab{display:inline-block;background:#009d94;color:#fff;font-size:11px;font-weight:700;padding:4px 13px;border-radius:3px;letter-spacing:.06em;margin-bottom:11px;text-transform:uppercase;}
+.rb{background:#fffbf0;border:1.5px solid #f0d080;border-radius:5px;padding:12px 15px;margin-top:12px;}
+.rl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#a07820;margin-bottom:3px;}
+.dg-ok{background:rgba(0,157,148,.06);border:1.5px solid rgba(0,157,148,.2);border-radius:5px;padding:9px 12px;margin-bottom:6px;font-size:12px;color:#1a1a1a;line-height:1.6;display:flex;gap:9px;}
+.dg-ch{background:#fdf6f3;border:1.5px solid #e8cfc5;border-radius:5px;padding:9px 12px;margin-bottom:6px;font-size:12px;color:#1a1a1a;line-height:1.6;display:flex;gap:9px;}
+
+.prop-num{font-size:10px;font-weight:700;color:#009d94;letter-spacing:.1em;text-transform:uppercase;margin-right:6px;}
+.prop-ver{font-size:10px;font-weight:600;color:#aaa;border:1px solid #e0dbd4;border-radius:3px;padding:1px 6px;background:#fafaf8;}
+
+.vend-filter{display:flex;gap:6px;align-items:center;margin-bottom:14px;flex-wrap:wrap;}
+.vend-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid #e0dbd4;background:#fff;color:#888;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.vend-tab.on{background:#1f2d32;border-color:#1f2d32;color:#009d94;}
+.gmail-btn{background:#fff;border:1.5px solid #e0dbd4;color:#555;border-radius:5px;padding:6px 13px;font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:5px;transition:all .15s;}
+.gmail-btn:hover{border-color:#009d94;color:#009d94;}
+
+/* Tagline capa */
+.capa-tagline{font-size:13px;color:rgba(255,255,255,.55);font-style:italic;line-height:1.65;margin-bottom:18px;max-width:480px;}
+/* Pergunta ROI */
+.roi-pergunta{background:rgba(0,157,148,.1);border:1px solid rgba(0,157,148,.25);border-radius:6px;padding:14px 20px;margin-top:14px;display:flex;align-items:center;gap:14px;}
+.roi-pergunta-icon{width:36px;height:36px;border-radius:50%;background:rgba(0,157,148,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.roi-pergunta-text{font-size:14px;color:rgba(255,255,255,.85);font-weight:500;line-height:1.5;}
+.roi-pergunta-text strong{color:#009d94;}
+/* Parceiros hierarquia */
+.par-sf{flex:1.6;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 14px;border-right:1.5px solid #f0ece6;text-align:center;background:#f0faf8;}
+.par-sf-badge{font-size:9px;font-weight:700;color:#009d94;background:rgba(0,157,148,.1);border:1px solid rgba(0,157,148,.25);border-radius:3px;padding:2px 8px;letter-spacing:.08em;text-transform:uppercase;margin-top:6px;display:inline-block;}
+.par-right{flex:1;display:flex;flex-direction:column;}
+.par-right .pa{border-right:none;border-bottom:1.5px solid #f0ece6;}
+.par-right .pa:last-child{border-bottom:none;}
+/* Separador Z-flow */
+.z-connector{display:flex;align-items:center;justify-content:center;padding:4px 0;margin:0;}
+.z-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(0,157,148,.25),transparent);}
+.z-dot{width:6px;height:6px;border-radius:50%;background:#009d94;opacity:.4;margin:0 8px;flex-shrink:0;}
+/* Ícones SVG time */
+.tc-icon{width:32px;height:32px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;background:#e8e4de;}
+.tc.hi .tc-icon{background:rgba(255,255,255,.2);}
+/* Logo cliente centralizada */
+.cliente-logo-wrap{width:72px;height:72px;border:1.5px solid rgba(255,255,255,.18);border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 auto 14px;}
+
+
+.link-btn{background:transparent;color:#16a34a;border:1.5px solid #16a34a;border-radius:5px;padding:6px 13px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
+.link-btn:hover{background:rgba(22,163,74,.08);}
+.link-copied{background:rgba(22,163,74,.12);border-color:#16a34a;color:#16a34a;}
+.sync-btn{background:transparent;color:#4ade80;border:1.5px solid #4ade80;border-radius:5px;padding:7px 13px;font-weight:600;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.sync-btn:disabled{opacity:.5;cursor:not-allowed;}
+.sync-status{font-size:11px;padding:4px 10px;border-radius:4px;font-weight:600;display:none;}
+.sync-ok{color:#16a34a;background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.2);}
+.sync-err{color:#dc2626;background:rgba(220,38,38,.1);border:1px solid rgba(220,38,38,.2);}
+.sync-loading{color:#009d94;background:rgba(0,157,148,.1);border:1px solid rgba(0,157,148,.2);}
+@page{
+  margin: 12mm 10mm;
+  size: A4;
+}
+@media print{
+  /* Remove cabeçalho e rodapé automático do Chrome (URL, data, título) */
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  .nav,.sync-btn,.gbtn,.sbtn,.nbtn,.jb,.jp,.fup-section{display:none!important;}
+  body{background:#fff!important;margin:0;padding:0;}
+  .main{max-width:100%!important;padding:0!important;margin:0!important;}
+  .op{border:none!important;border-radius:0!important;}
+  .ops{padding:16px 36px!important;border-bottom:1px solid #e0dbd4!important;page-break-inside:avoid;}
+  .opsa{background:#fafaf8!important;}
+  .opsn{color:#009d94!important;}
+  .res{color:#1a1a1a!important;background:#f4f2ee!important;}
+  .ctx-i{background:#f4f2ee!important;}
+  .ctx-v{color:#1a1a1a!important;}
+  .ok{background:#e8f5f2!important;color:#1a1a1a!important;}
+  .nok{background:#fdf0ec!important;color:#1a1a1a!important;}
+  .rc{background:#f9f7f4!important;}
+  .tnote{color:#1a1a1a!important;background:#f4f2ee!important;}
+  .ab{background:#009d94!important;color:#fff!important;}
+  .ni-n{color:#009d94!important;}
+  .ot th{background:#f4f2ee!important;}
+  .ot .hi{color:#009d94!important;}
+  .ot .bold-row td{background:#f4f2ee!important;}
+  .esf-header{background:#f4f2ee!important;}
+  .esf-v{color:#009d94!important;}
+  .ib{background:#1f2d32!important;border:2px solid #2d4048!important;}
+  .ib-val{color:#ffffff!important;font-size:44px!important;font-family:'DM Sans',sans-serif!important;letter-spacing:-.02em!important;}
+  .ib-label{color:#ccc!important;}
+  .ib-sub{color:#aaa!important;}
+  .ib-validity-l{color:#aaa!important;}
+  .ib-validity-v{color:#ddd!important;}
+  .of{background:#1f2d32!important;border-top:3px solid #009d94!important;}
+  .ct-ativo{background:#1f2d32!important;color:#009d94!important;border-color:#009d94!important;}
+  .ops,.ops-dark{padding:16px 36px!important;border-bottom:1px solid #e0dbd4!important;page-break-inside:avoid;}
+  /* Seções que NÃO devem ser cortadas */
+  .tcg{page-break-inside:avoid!important;}
+  .esf{page-break-inside:avoid!important;}
+  .esf-body{page-break-inside:avoid!important;}
+  .ib{page-break-inside:avoid!important;}
+  .jw{page-break-inside:avoid!important;}
+  .rg{page-break-inside:avoid!important;}
+  .cg{page-break-inside:avoid!important;}
+  .par{page-break-inside:avoid!important;}
+  .ni{page-break-inside:avoid!important;}
+  /* Forçar quebra ANTES de seções pesadas para evitar corte no meio */
+  .ops:nth-child(7){page-break-before:auto!important;}
+  /* Manter título com conteúdo */
+  .opsh{page-break-after:avoid!important;}
+  /* Tabela não quebra */
+  .ot{page-break-inside:avoid!important;}
+  table{page-break-inside:avoid!important;}
+  tr{page-break-inside:avoid!important;page-break-after:auto!important;}
+  /* Jornada não quebra */
+  .jw *{page-break-inside:avoid!important;}
+  .qual-tabs{display:none!important;}
+  .qual-desc{display:none!important;}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbzsezpT4z4FAYvIXAEeuH2UEbcqcejXqQ5hPSD_wryPljxVtRu7a6eu1QZPreNOVPOz/exec';
+const SEGS=['Tecnologia & SaaS','Serviços B2B & Consultoria','Indústria & Manufatura','Energia & Sustentabilidade','Marketing & Comunicação','Logística & Transporte','Jurídico & Contábil','Mobilidade & Automóveis','Seguros & Financeiro','Telecom & Conectividade','Saúde & Bem-estar','Impressão & Tecnologia','Financeiro & Contábil'];
+const ATIVOS=['Techware','WBP','Cadena','Consultar','Minascopy','Purifikar','Radio Memory','Velt','Perfil Apoio','Mytech','FDC','Triex','Zeus','Multilog','Regmed','Comis','CST','Macrosystem','Bycor','FBE','BWA','Strom','Nova Indiana','PSP','FGA','Afixcode','Janis','Atena','RBE','Maac','Uaify','Mednet','Volp','Zenite','Log School','YFN','Armind','MPFA'];
+const CLIENTS={
+  'Tecnologia & SaaS':['Mytech','Atena AI','Volp.ti','Uaify','Mednet','Zenite','DTI Digital','Atendare','Bornlogic','Mereo Tech','Nexxto','Netscanner','Vlatech','Buyco','SSTI','Nuvidio','Treve.io','TNX Brasil'],
+  'Serviços B2B & Consultoria':['Consultar','WBP','Perfil Apoio','MPFA Jurídico','Novix','Rocket Science','VMV Group','Conseiller','Theocom','Audaz','RN3 Inovação','Ideia Clara'],
+  'Indústria & Manufatura':['Nova Indiana Borrachas','Strom Engenharia','Regmed','Bycor','PSP Group','Alkon Indústria','Zinco Brasil','Pressmix','Chicago Pneumatic','Inwave','Innovatec','Planar'],
+  'Energia & Sustentabilidade':['Triex','RBE Energia','Capitale Energia','Armor Energia','Detronic','Innovare Energia'],
+  'Marketing & Comunicação':['Armind Eventos','Guerrilha Filmes','Magnex','Agência 947','ORO Comunicação','Pixxel'],
+  'Logística & Transporte':['Multilog','Multilog 02','Multilog 03','Maac Travel','Axis Shipping','Octo Transportes','Brasfrotas','Samid'],
+  'Jurídico & Contábil':['YFN Advogados','MPFA Jurídico','Gontijo Mendes','Candiotto Valle','Starling & Ferreira','Muzzi Advogados'],
+  'Mobilidade & Automóveis':['MM Rent a Car','Autopapo','Garmisch'],
+  'Seguros & Financeiro':['Grape Seguros','Suhai','Otmow','Partnerbank','Trademaster','Money Miles'],
+  'Telecom & Conectividade':['Log School','Techware','Sitel','Citta Telecom','Televale','Eagle Telecom'],
+  'Saúde & Bem-estar':['CST Medicina','Funcional Health Tech','RS Saúde','Salubrita','Tolife'],
+  'Impressão & Tecnologia':['Techware','Macrosystem','Radio Memory','Afixcode','Purifikar','Purifikar 02','Comis','FGA','Minascopy'],
+  'Financeiro & Contábil':['FBE Desenvolvimento','BWA','Cadena','Velt Corporativo','Janis']
+};
+
+const VENDEDORES={
+  'andre':{nome:'André Albergaria',email:'andre@grupoescalar.com.br',tel:'(31) 99998-0237'},
+  'marco':{nome:'Marco Tulio',email:'marco@grupoescalar.com.br',tel:''},
+  'rhavi':{nome:'Rhavi',email:'rhavi@grupoescalar.com.br',tel:''}
+};
+
+const OBJ_OPTS=['Prospecção Outbound Consultiva','Mapeamento de Mercado & Inteligência','Construção de Base Estratégica','Social Selling & Relacionamento','Cadências Multicanais','Qualificação de Leads & Reuniões','Nutrição Outbound','Scripts de abordagem','Templates de e-mail','Mensagens LinkedIn/WhatsApp','Gestão Operacional & Performance'];
+const RLBL={'abaixo_1':'< R$ 1MM','1_5':'R$ 1-5MM','5_20':'R$ 5-20MM','acima_20':'> R$ 20MM'};
+const VLBL={'nenhum':'0','1_2':'1-2','3_5':'3-5','6_10':'6-10','acima_10':'10+'};
+const CLBL={'menos30':'< 30 dias','30_60':'30-60 dias','60_120':'60-120 dias','mais120':'120+ dias'};
+const TLBL={'recorrente':'Recorrente (MRR)','projeto':'Projeto','misto':'Misto'};
+const CNAME={'nenhum':'Sem CRM','pipedrive':'Pipedrive','hubspot':'HubSpot','salesforce':'Salesforce','rdstation':'RD Station','planilha':'Planilhas','outros':'Outros'};
+const RNOME={'local':'Local','estadual':'Estadual','sul_sudeste':'Sul+Sudeste','sudeste':'Sudeste','brasil':'Brasil','america_latina':'América Latina','global':'Global'};
+
+function fmtD(){return new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});}
+function fmtDate(d){if(!d)return '';if(d.includes('T'))return new Date(d).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});return d;}
+function fmtVal(v){if(!v||v===0)return'—';if(v>=1000000)return'R$'+Math.round(v/1000000)+'M';if(v>=100000)return'R$'+Math.round(v/1000)+'k';return'R$'+v.toLocaleString('pt-BR');}
+function mrrList(l){return l.reduce((s,p)=>{const raw=(p.valor||'').replace(/[R$\s.]/g,'').replace(',','.');const n=parseFloat(raw);return s+(isNaN(n)?0:n);},0);}
+
+let proposals=[];
+try{const r=localStorage.getItem('esc_bpo');if(r)proposals=JSON.parse(r);}catch(e){}
+
+// Migração: garantir num e ver em propostas antigas
+if(proposals.length){
+  let changed=false;
+  let maxNum=Math.max(0,...proposals.map(p=>p.num||0));
+  proposals.forEach(p=>{
+    if(!p.num){p.num=++maxNum;changed=true;}
+    if(!p.ver){p.ver=1;changed=true;}
+    if(!p.fups){p.fups={};changed=true;}
+  });
+  if(changed){try{localStorage.setItem('esc_bpo',JSON.stringify(proposals));}catch(e){}}
+}
+
+if(!proposals.length){proposals=[{id:1,num:1,ver:1,vendedor:'andre',empresa:'TechFlow Solutions',segmento:'Tecnologia & SaaS',contato:'Marcos Lima',cargo:'CEO',website:'techflow.com.br',receita:'1_5',vendedores:'3_5',crm:'hubspot',regiao:'sudeste',crescimento:['Inbound','Outbound'],previsibilidade:'moderada',icp:'muito_claro',ciclo:'30_60',ticket_tipo:'recorrente',ticket:'R$ 15.000',dores:'Escalar prospecção com qualidade.',objetivo:'',objetivos:['Prospecção Outbound Consultiva'],reuniao:'Foco em tech 50+ funcionários no Sudeste.',modelo:'dedicado',valor:'R$ 8.500',status:'enviada',created:'23/05/2026',fups:{}}];}
+syncCounter();
+function sv(){try{localStorage.setItem('esc_bpo',JSON.stringify(proposals));}catch(e){}}
+function nextNum(){
+  // Contador global que só cresce — nunca repete mesmo após deletar propostas
+  let counter=0;
+  try{counter=parseInt(localStorage.getItem('esc_bpo_counter')||'0');}catch(e){}
+  counter++;
+  try{localStorage.setItem('esc_bpo_counter',String(counter));}catch(e){}
+  return counter;
+}
+function syncCounter(){
+  // Ao carregar, garantir que o contador está acima do maior número existente
+  try{
+    const cur=parseInt(localStorage.getItem('esc_bpo_counter')||'0');
+    const maxNum=Math.max(0,...proposals.map(p=>p.num||0));
+    if(maxNum>=cur) localStorage.setItem('esc_bpo_counter',String(maxNum));
+  }catch(e){}
+}
+function ef(){return{id:Date.now(),num:nextNum(),ver:1,vendedor:'andre',empresa:'',segmento:'',contato:'',cargo:'',website:'',receita:'',vendedores:'',crm:'',regiao:'',crescimento:[],previsibilidade:'',icp:'',ciclo:'',ticket_tipo:'',ticket:'',dores:'',objetivo:'',objetivos:[],reuniao:'',modelo:'compartilhado',valor:'',status:'rascunho',created:fmtD(),fups:{}};}
+
+let view='dash',step=1,F={},editId=null,vendFilter='todos';
+
+function showSyncStatus(msg,type){let el=document.getElementById('sync-status');if(!el)return;el.textContent=msg;el.className='sync-status sync-'+type;el.style.display='inline-block';if(type==='ok')setTimeout(()=>{el.style.display='none';},3000);}
+async function syncToSheets(p){try{showSyncStatus('Sincronizando...','loading');const res=await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'save',proposal:p}),headers:{'Content-Type':'text/plain'}});const data=await res.json();if(data.ok)showSyncStatus('✓ Salvo na planilha','ok');else showSyncStatus('Erro: '+data.message,'err');}catch(e){showSyncStatus('Erro de conexão','err');}}
+async function syncAllToSheets(){const btn=document.getElementById('btn-sync-all');if(btn){btn.disabled=true;btn.textContent='Sincronizando...';}try{showSyncStatus('Sincronizando...','loading');const res=await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'saveAll',proposals}),headers:{'Content-Type':'text/plain'}});const data=await res.json();if(data.ok)showSyncStatus('✓ '+data.message,'ok');else showSyncStatus('Erro: '+data.message,'err');}catch(e){showSyncStatus('Erro de conexão','err');}if(btn){btn.disabled=false;btn.textContent='☁ Sincronizar Planilha';}}
+async function loadFromSheets(){const btn=document.getElementById('btn-sync-all');if(btn){btn.disabled=true;btn.textContent='Carregando...';}try{showSyncStatus('Carregando...','loading');const res=await fetch(SHEETS_URL+'?t='+Date.now());const data=await res.json();if(data.ok&&data.proposals&&data.proposals.length){
+  // Merge inteligente: preservar FUPs e dados locais que não estão na planilha
+  const localMap={};proposals.forEach(p=>{localMap[p.id]=p;});
+  proposals=data.proposals.map(remote=>{
+    const local=localMap[remote.id];
+    if(local){
+      // Preservar FUPs locais pois não são salvos na planilha
+      remote.fups=local.fups||{};
+    } else {
+      remote.fups={};
+    }
+    return remote;
+  });
+  sv();re();showSyncStatus('✓ '+data.proposals.length+' propostas carregadas','ok');}else showSyncStatus('Planilha vazia','err');}catch(e){showSyncStatus('Erro de conexão','err');}if(btn){btn.disabled=false;btn.textContent='☁ Carregar Planilha';}}
+async function deleteFromSheets(id){try{await fetch(SHEETS_URL,{method:'POST',body:JSON.stringify({action:'delete',id}),headers:{'Content-Type':'text/plain'}});}catch(e){}}
+
+function calcDiag(d){
+  const f=[],ch=[],cr=d.crescimento||[];
+  if(cr.includes('Indicação'))f.push('Forte capital relacional — clientes satisfeitos atuam como promotores da marca');
+  if(cr.includes('Inbound'))f.push('Presença digital ativa gerando demanda orgânica qualificada');
+  if(cr.includes('Outbound'))f.push('Iniciativa de prospecção ativa com perfil hunter consolidado');
+  if(d.icp==='muito_claro')f.push('ICP bem definido — direcionamento estratégico claro para prospecção');
+  if(d.ciclo==='menos30'||d.ciclo==='30_60')f.push('Ciclo comercial favorável para aprendizado acelerado');
+  if(d.previsibilidade==='baixa'||d.previsibilidade==='dependente')ch.push('Baixa previsibilidade de pipeline — crescimento dependente de variáveis externas');
+  if(cr.includes('Indicação')&&!cr.includes('Outbound'))ch.push('Dependência do crescimento orgânico limita velocidade de escala');
+  if(d.icp==='inexistente'||d.icp==='parcial')ch.push('ICP indefinido compromete eficiência da prospecção e aumenta o CAC');
+  if(!d.crm||d.crm==='nenhum')ch.push('Ausência de CRM dificulta rastreabilidade e previsibilidade do pipeline');
+  if(d.ciclo==='mais120')ch.push('Ciclo longo exige estrutura robusta de nutrição e gestão de médio prazo');
+  const resumo=`${d.empresa||'A empresa'} apresenta ${f.length} ponto(s) de força e ${ch.length} desafio(s) crítico(s). ${d.previsibilidade==='muito_previsivel'?'A operação demonstra maturidade comercial relevante, com clara capacidade de expansão.':'A operação ainda depende de fatores relacionais para crescer — existe janela estratégica para construção de motor de demanda previsível e escalável com a Escalar.'}`;
+  return{f,ch,resumo};
+}
+
+const QUAL_DESC={
+  aberta:'Conectamos com qualquer perfil do setor — influenciador ou decisor, independente do momento de compra. Alto volume de conexões, conversão em reunião naturalmente menor.',
+  padrao:'Conectamos com perfis mais qualificados — decisores com maior probabilidade de interesse no curto prazo. Equilíbrio entre volume de conexões e qualificação.',
+  restrita:'Conectamos apenas com decisores em critérios muito específicos — ex: contrato vencendo, empresa em expansão, cargo exato. Menor volume, maior aderência ao perfil.'
+};
+const QUAL_TABELAS={
+  compartilhado:{
+    aberta: [['Abordagens iniciais','350','350','350'],['Leads conectados<span class="conv-pct">(30–45%)</span>','105','131','158'],['Conexão tomadores<span class="conv-pct">(15–20%)</span>','16','23','32'],['Interações decisor<span class="conv-pct">(15–20%)</span>','16','23','32'],['Oportunidades geradas','3','7','12']],
+    padrao:  [['Abordagens iniciais','350','350','350'],['Leads conectados<span class="conv-pct">(25–35%)</span>','88','105','122'],['Conexão tomadores<span class="conv-pct">(20–28%)</span>','18','26','35'],['Interações decisor<span class="conv-pct">(18–22%)</span>','12','18','26'],['Oportunidades geradas','4','8','13']],
+    restrita:[['Abordagens iniciais','350','350','350'],['Leads conectados<span class="conv-pct">(15–25%)</span>','53','70','88'],['Conexão tomadores<span class="conv-pct">(28–35%)</span>','21','30','39'],['Interações decisor<span class="conv-pct">(22–30%)</span>','13','20','29'],['Oportunidades geradas','5','9','14']]
+  },
+  dedicado:{
+    aberta: [['Abordagens iniciais','1.100','1.100','1.100'],['Leads conectados<span class="conv-pct">(30–34%)</span>','330','352','374'],['Conexão tomadores<span class="conv-pct">(23%)</span>','76','81','86'],['Interações decisor<span class="conv-pct">(17%)</span>','13','14','15'],['Oportunidades geradas','10','14','20']],
+    padrao:  [['Abordagens iniciais','1.100','1.100','1.100'],['Leads conectados<span class="conv-pct">(25–31%)</span>','275','308','341'],['Conexão tomadores<span class="conv-pct">(26–30%)</span>','82','90','98'],['Interações decisor<span class="conv-pct">(18%)</span>','14','16','18'],['Oportunidades geradas','11','15','22']],
+    restrita:[['Abordagens iniciais','1.100','1.100','1.100'],['Leads conectados<span class="conv-pct">(15–21%)</span>','165','198','231'],['Conexão tomadores<span class="conv-pct">(35–40%)</span>','90','100','110'],['Interações decisor<span class="conv-pct">(20%)</span>','16','18','20'],['Oportunidades geradas','12','16','23']]
+  }
+};
+
+function setQual(pid,tipo){
+  const p=proposals.find(x=>x.id==pid);if(!p)return;
+  // Só muda o texto explicativo — tabela fica sempre com valores padrão
+  const tabs=document.querySelectorAll('#qtabs-'+pid+' .qual-tab');
+  const tipos=['aberta','padrao','restrita'];
+  tabs.forEach((t,i)=>{t.className='qual-tab'+(tipos[i]===tipo?' on':'');});
+  const desc=document.getElementById('qdesc-'+pid);
+  if(desc)desc.textContent=QUAL_DESC[tipo];
+}
+
+function saveFup(pid,n,key,val){
+  const p=proposals.find(x=>x.id===pid||x.id==pid);if(!p)return;
+  if(!p.fups)p.fups={};
+  if(!p.fups[n])p.fups[n]={};
+  p.fups[n][key]=val;
+  sv();
+  const box=document.getElementById('fup-'+pid+'-'+n);
+  if(!box)return;
+  const fup=p.fups[n];
+  const st=fup.status;
+  box.className='fup-box'+(st==='done'?' done':st==='pend'?' pend':'');
+  const dot=box.querySelector('.fup-dot');
+  if(dot)dot.className='fup-dot'+(st==='done'?' done':st==='pend'?' pend':'');
+}
+
+function re(){document.getElementById('app').innerHTML=view==='dash'?rDash():view==='form'?rForm():rOP();}
+
+function rDash(){
+  // Filtrar por vendedor se ativo
+  const filtered=vendFilter==='todos'?proposals:proposals.filter(p=>p.vendedor===vendFilter);
+  const env=filtered.filter(p=>p.status==='enviada');
+  const apr=filtered.filter(p=>p.status==='aprovada');
+  const ras=filtered.filter(p=>p.status==='rascunho');
+  const per=filtered.filter(p=>p.status==='perdida');
+  const allV=filtered.filter(p=>p.valor);
+  const avgV=allV.length?mrrList(allV)/allV.length:0;
+  const conv=env.length+apr.length>0?Math.round(apr.length/(env.length+apr.length)*100)+'%':'—';
+  const BCOL={'rascunho':'br','enviada':'be','aprovada':'ba','perdida':'bp'};
+
+  const cards=!filtered.length?'<div class="empty">Nenhuma proposta'+(vendFilter!=='todos'?' para este vendedor':'')+'.</div>':filtered.map(p=>{
+    const fups=p.fups||{};
+    const fupHtml=[1,2,3,4,5].map(n=>{
+      const fup=fups[n]||{};
+      const st=fup.status||'';
+      const cls=st==='done'?' done':st==='pend'?' pend':'';
+      const dotCls=st==='done'?' done':st==='pend'?' pend':'';
+      const dateVal=fup.date?fup.date:'';
+      const noteVal=fup.note||'';
+      return '<div class="fup-box'+cls+'" id="fup-'+p.id+'-'+n+'">'+
+        '<div class="fup-dot'+dotCls+'"></div>'+
+        '<div class="fup-num">FUP '+n+'</div>'+
+        '<input type="date" class="fup-dt" value="'+dateVal+'" onchange="saveFup('+p.id+','+n+',\'date\',this.value)">'+
+        '<textarea class="fup-nt" rows="2" placeholder="Anotação..." onchange="saveFup('+p.id+','+n+',\'note\',this.value)">'+noteVal+'</textarea>'+
+        '<div class="fup-sts">'+
+        '<span class="fup-st" onclick="saveFup('+p.id+','+n+',\'status\',\'done\')"><span style="width:7px;height:7px;border-radius:50%;background:#009d94;display:inline-block;margin-right:2px;"></span>OK</span>'+
+        '<span class="fup-st" onclick="saveFup('+p.id+','+n+',\'status\',\'pend\')"><span style="width:7px;height:7px;border-radius:50%;background:#f0c030;display:inline-block;margin-right:2px;"></span>Pend.</span>'+
+        '</div>'+
+        '</div>';
+    }).join('');
+
+    return '<div class="pcard">'+
+      '<div class="pcard-top">'+
+      '<div class="pav">'+((p.empresa||'?').slice(0,2).toUpperCase())+'</div>'+
+      '<div class="pinfo"><div class="pname">'+( p.empresa||'Sem nome')+'</div><div class="pmeta">'+(p.segmento||'—')+' · '+(p.contato||'—')+' · '+fmtDate(p.created)+'</div></div>'+
+      '<div class="pact">'+
+      '<span style="font-size:10px;font-weight:600;color:#555;background:#f4f2ee;border:1.5px solid #e0dbd4;border-radius:4px;padding:3px 8px;">'+((VENDEDORES[p.vendedor||'andre']||{}).nome||'—').split(' ')[0]+'</span>'+
+      '<span class="badge '+(BCOL[p.status]||'br')+'">'+ p.status+'</span>'+
+      '<span class="badge br">'+(p.modelo||'—')+'</span>'+
+      (p.valor?'<span style="font-weight:700;color:#009d94;font-size:13px;">'+p.valor+'/mês</span>':'')+
+      '<select class="ssel" onchange="setSt('+p.id+',this.value)">'+['rascunho','enviada','aprovada','perdida'].map(s=>'<option value="'+s+'"'+(p.status===s?' selected':'')+'>'+s+'</option>').join('')+'</select>'+
+      '<button class="nbtn" style="padding:6px 13px;font-size:11px;" onclick="goOP('+p.id+')">Ver OnePage</button>'+
+      '<button class="link-btn" id="link-btn-'+p.id+'" onclick="gerarLink('+p.id+')">&#128279; Gerar Link</button>'
+      +'<button class="gmail-btn" onclick="sendGmail('+p.id+')" title="Enviar por Gmail">'+
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0 1.1.9 2 2 2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>'+
+      'Gmail</button>'+
+      '<button class="sbtn" onclick="goEdit('+p.id+')">Editar</button>'+
+      '<button class="sbtn" onclick="dupP('+p.id+')">Duplicar</button>'+
+      '<button class="dbtn" onclick="delP('+p.id+')">✕</button>'+
+      '</div></div>'+
+      '<div class="fup-section"><div class="fup-lbl">Follow-up</div><div class="fup-row">'+fupHtml+'</div></div>'+
+      '</div>';
+  }).join('');
+
+  var vendTabs=['todos|Todos','andre|André','marco|Marco Tulio','rhavi|Rhavi'];
+  var vendTabsHTML='<div class="vend-filter"><span style="font-size:11px;color:#aaa;font-weight:600;margin-right:4px;">Filtrar:</span>';
+  vendTabs.forEach(function(item){
+    var parts=item.split('|'); var v=parts[0]; var l=parts[1];
+    vendTabsHTML+='<span class="vend-tab'+(vendFilter===v?' on':'')+'" onclick="setVendFilter(this,\''+v+'\')">'+l+'</span>';
+  });
+  vendTabsHTML+='</div>';
+
+  return '<div class="nav"><div><div class="nlogo"><span>ESCALAR</span> BPO</div><div class="nsub">Consultor Comercial Digital</div></div>'+
+    '<div style="display:flex;gap:8px;align-items:center;">'+
+    '<span id="sync-status" class="sync-status"></span>'+
+    '<button class="sync-btn" id="btn-sync-all" onclick="loadFromSheets()">☁ Carregar Planilha</button>'+
+    '<button class="sync-btn" style="color:#009d94;border-color:#009d94;" onclick="syncAllToSheets()">↑ Enviar Tudo</button>'+
+    '<button class="nbtn" onclick="goNew()">+ Nova Proposta</button>'+
+    '</div></div>'+
+    '<div class="main">'+
+    vendTabsHTML+
+    '<div class="stats">'+
+    [['Total',proposals.length,'#009d94'],['Rascunhos',ras.length,'#aaa'],['Enviadas',env.length,'#009d94'],['Aprovadas',apr.length,'#16a34a'],['Perdidas',per.length,'#dc2626']].map(([l,v,c])=>'<div class="stat"><div class="sv" style="color:'+c+';">'+v+'</div><div class="sl">'+l+'</div></div>').join('')+
+    '</div>'+
+    '<div class="pipe"><div class="pipe-t">Pipeline Financeiro (MRR)</div><div class="pipe-row">'+
+    '<div class="ps"><div class="ps-l">Em Negociação</div><div class="ps-v" style="color:#009d94;">'+env.length+'</div><div class="ps-s" style="color:#009d94;">'+fmtVal(mrrList(env))+'/mês</div></div>'+
+    '<div class="ps"><div class="ps-l">Aprovadas</div><div class="ps-v" style="color:#16a34a;">'+apr.length+'</div><div class="ps-s" style="color:#16a34a;">'+fmtVal(mrrList(apr))+'/mês</div></div>'+
+    '<div class="ps"><div class="ps-l">Ticket Médio</div><div class="ps-v" style="font-size:18px;color:#1a1a1a;">'+fmtVal(avgV)+'</div><div class="ps-s" style="color:#aaa;">por proposta</div></div>'+
+    '<div class="ps"><div class="ps-l">Conversão</div><div class="ps-v" style="font-size:18px;color:#1a1a1a;">'+conv+'</div><div class="ps-s" style="color:#aaa;">env → apr</div></div>'+
+    '</div></div>'+
+    cards+'</div>';
+}
+
+function chip(l,v,key,multi){const on=multi?(F[key]||[]).includes(v):F[key]===v;const cl=multi?`tgl('${key}','${v}')`:`setF('${key}','${v}')`;return`<span class="chip${on?' on':''}" onclick="${cl}">${l}</span>`;}
+function fld(lbl,key,ph){return`<div class="fld"><label class="lbl">${lbl}</label><input value="${F[key]||''}" placeholder="${ph||''}" oninput="F['${key}']=this.value"></div>`;}
+function seld(lbl,key,opts){return`<div class="fld"><label class="lbl">${lbl}</label><select onchange="F['${key}']=this.value"><option value="">Selecione...</option>${opts.map(([v,l])=>`<option value="${v}"${F[key]===v?' selected':''}>${l}</option>`).join('')}</select></div>`;}
+
+function rForm(){
+  const ded=F.modelo==='dedicado';
+  const d=step>=3?calcDiag(F):{f:[],ch:[],resumo:''};
+  let body='';
+  if(step===1){body=`<div class="sey">Bloco 01</div><div class="stt">Identificação do cliente</div><div class="ssb">Dados básicos para contextualizar a proposta</div>
+    <div class="g2">${fld('Empresa','empresa','Nome da empresa')}${fld('Website','website','https://empresa.com.br')}</div>
+    <div class="g2">${seld('Segmento','segmento',SEGS.map(s=>[s,s]))}${fld('Contato','contato','Nome do decisor')}</div>
+    <div class="g2">${fld('Cargo','cargo','CEO, Diretor...')}${seld('Região','regiao',[['local','Local'],['estadual','Estadual'],['sul_sudeste','Sul+Sudeste'],['sudeste','Sudeste'],['brasil','Brasil'],['america_latina','América Latina'],['global','Global']])}</div>
+    <div class="g2">${seld('Faturamento anual','receita',[['abaixo_1','< R$ 1MM'],['1_5','R$ 1-5MM'],['5_20','R$ 5-20MM'],['acima_20','> R$ 20MM']])}${seld('Nº de vendedores','vendedores',[['nenhum','Nenhum'],['1_2','1-2'],['3_5','3-5'],['6_10','6-10'],['acima_10','10+']])}</div>
+    ${seld('CRM atual','crm',[['nenhum','Sem CRM'],['pipedrive','Pipedrive'],['hubspot','HubSpot'],['salesforce','Salesforce'],['rdstation','RD Station'],['planilha','Planilhas'],['outros','Outros']])}${seld('Vendedor responsável','vendedor',[['andre','André Albergaria'],['marco','Marco Tulio'],['rhavi','Rhavi']])}`;
+  }else if(step===2){
+    const objChips=OBJ_OPTS.map(o=>{
+      const on=(F.objetivos||[]).includes(o);
+      return '<span class="obj-chip'+(on?' on':'')+'" onclick="tglObj(this,\''+o.replace(/'/g,'\\\'')+'\')">' +o+'</span>';
+    }).join('');
+    body=`<div class="sey">Bloco 02</div><div class="stt">Contexto comercial</div><div class="ssb">Como a empresa cresce e onde quer chegar</div>
+    <div class="cin"><label class="lbl">Como cresce hoje?</label><div class="chips">${['Indicação','Outbound','Inbound','Parceiros','Networking','Tráfego Pago','Outro'].map(v=>chip(v,v,'crescimento',true)).join('')}</div></div>
+    <div class="cin"><label class="lbl">Previsibilidade comercial</label><div class="chips">${[['Muito previsível','muito_previsivel'],['Moderada','moderada'],['Baixa','baixa'],['Dependente de relacionamento','dependente']].map(([l,v])=>chip(l,v,'previsibilidade',false)).join('')}</div></div>
+    <div class="cin"><label class="lbl">ICP definido?</label><div class="chips">${[['Muito claro','muito_claro'],['Parcialmente','parcial'],['Inexistente','inexistente']].map(([l,v])=>chip(l,v,'icp',false)).join('')}</div></div>
+    <div class="g2">
+      <div class="cin"><label class="lbl">Ciclo comercial</label><div class="chips">${[['< 30d','menos30'],['30-60d','30_60'],['60-120d','60_120'],['120+d','mais120']].map(([l,v])=>chip(l,v,'ciclo',false)).join('')}</div></div>
+      <div class="cin"><label class="lbl">Tipo de venda</label><div class="chips">${[['Recorrente (MRR)','recorrente'],['Projeto','projeto'],['Misto','misto']].map(([l,v])=>chip(l,v,'ticket_tipo',false)).join('')}</div></div>
+    </div>
+    ${fld('Ticket médio','ticket','Ex: R$ 5.000')}
+    <div class="fld"><label class="lbl">Principais dores</label><textarea rows="2" oninput="F.dores=this.value" placeholder="Descreva os desafios...">${F.dores||''}</textarea></div>
+    <div class="fld"><label class="lbl">Objetivo com a Escalar</label><div style="margin-top:6px;">${objChips}</div>
+    <textarea rows="2" style="margin-top:8px;" oninput="F.objetivo=this.value" placeholder="Ou descreva livremente...">${F.objetivo||''}</textarea></div>
+    <div class="fld"><label class="lbl" style="color:#a07820;">Pontos alinhados na reunião</label><textarea rows="2" style="border-color:#f0d080;background:#fffbf0;" oninput="F.reuniao=this.value" placeholder="Anotações da reunião...">${F.reuniao||''}</textarea></div>`;
+  }else if(step===3){
+    body=`<div class="sey">Bloco 03</div><div class="stt">Diagnóstico gerado</div><div class="ssb">Análise automática — revise antes de continuar</div>
+    <div style="margin-bottom:14px;"><div style="font-size:10px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">Resumo executivo</div><div class="res">${d.resumo}</div></div>
+    ${d.f.length?'<div style="font-size:10px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;">Pontos fortes</div>'+d.f.map(x=>`<div class="dg-ok"><span style="color:#009d94;font-weight:700;">✓</span>${x}</div>`).join(''):''}
+    ${d.ch.length?'<div style="font-size:10px;color:#a8543a;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin:11px 0 7px;">Desafios</div>'+d.ch.map(x=>`<div class="dg-ch"><span style="color:#a8543a;font-weight:700;">→</span>${x}</div>`).join(''):''}
+    <div style="margin-top:14px;"><label class="lbl" style="color:#a07820;">Ajustar pontos da reunião</label><textarea rows="2" style="border-color:#f0d080;background:#fffbf0;" oninput="F.reuniao=this.value">${F.reuniao||''}</textarea></div>`;
+  }else{
+    body=`<div class="sey">Bloco 04</div><div class="stt">Configuração operacional</div><div class="ssb">Modelo, projeções e investimento</div>
+    <div class="cin"><label class="lbl" style="margin-bottom:10px;">Modelo operacional</label>
+    <div style="display:flex;gap:10px;">${[['compartilhado','BDR Compartilhado','350 abordagens/mês'],['dedicado','BDR Dedicado','1.100 abordagens/mês']].map(([v,l,s])=>`<div class="mbt${F.modelo===v?' on':''}" onclick="setF('modelo','${v}')"><div>${l}</div><div style="font-size:11px;opacity:.6;font-weight:400;margin-top:3px;">${s}</div></div>`).join('')}</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">${[['Fechado',ded?10:3],['Padrão',ded?14:7],['Aberto',ded?20:12]].map(([l,v])=>`<div style="background:#f4f2ee;border:1.5px solid #e8e4de;border-radius:6px;padding:12px;text-align:center;"><div style="font-size:10px;color:#aaa;text-transform:uppercase;margin-bottom:4px;">${l}</div><div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#009d94;">${v}</div><div style="font-size:10px;color:#aaa;">oportunidades</div></div>`).join('')}</div>
+    <div class="g2">
+      <div class="fld"><label class="lbl">Investimento mensal</label><input value="${F.valor||''}" placeholder="Ex: R$ 6.500" oninput="F.valor=this.value" style="font-size:16px;font-weight:700;"></div>
+      <div class="fld"><label class="lbl">Empresas mapeadas/mês</label><input value="${F.empresas||'100'}" oninput="F.empresas=this.value"></div>
+    </div>
+    <div class="cin" style="background:rgba(0,157,148,.03);"><div style="font-size:10px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:9px;">Condições padrão</div>
+    <div class="cg">${[['Prazo','12 meses'],['Cancelamento','30 dias aviso prévio'],['Faturamento','Mensal pós-serviço'],['1º mês','50% adiantado'],['Equipe','CLT pela Escalar'],['Ferramentas','Inclusas'],['Integrações','Avaliadas separadamente'],['Impostos','Inclusos']].map(([k,v])=>`<div class="ci2"><div class="ck2">${k}</div><div class="cv2">${v}</div></div>`).join('')}</div></div>`;
+  }
+  return`<div class="nav"><div><div class="nlogo"><span>ESCALAR</span> BPO</div><div class="nsub">Nova Proposta — Etapa ${step} de 4</div></div><button class="sbtn" onclick="goDash()">← Dashboard</button></div>
+  <div class="prog"><div class="pf" style="width:${step/4*100}%"></div></div>
+  <div class="main" style="max-width:760px;"><div class="fcard"><div class="fbody">${body}
+    <div class="fnav">
+      <button class="sbtn" onclick="${step===1?'goDash()':'prevS()'}">${step===1?'Cancelar':'← Anterior'}</button>
+      <button class="nbtn" onclick="${step<4?'nextS()':'saveG()'}">${step===4?'Gerar OnePage →':'Próximo →'}</button>
+    </div>
+  </div></div></div>`;
+}
+
+const SF_SVG='<svg xmlns="http://www.w3.org/2000/svg" width="130" height="44" viewBox="0 0 325 110"><path d="M133.2,20.1c6.5-6.8,15.5-11,25.6-11c13.2,0,24.7,7.2,30.8,17.9c5.3-2.3,11.2-3.6,17.4-3.6c24.2,0,43.8,19.7,43.8,44c0,0.4,0,0.8,0,1.2c9.8,2,17.2,10.7,17.2,21.1c0,11.9-9.6,21.5-21.5,21.5H74.3C57.9,111.1,44.7,98,44.7,81.6c0-13.4,8.6-24.8,20.7-28.9C64.9,50.3,64.7,48,64.7,45.6C64.7,31.5,76.1,20,90.2,20c5.1,0,9.9,1.5,13.9,4.1C109.3,27.4,116.3,21.7,133.2,20.1z" fill="#00A1E0"/><text x="58" y="82" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="400" fill="white" letter-spacing="-0.5">sales<tspan font-style="italic">force</tspan></text></svg>';
+const BDR_ICON='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+const ESCALAR_LOGO='<svg width="170" height="40" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="50%" stop-color="#d0d8dc"/><stop offset="100%" stop-color="#8a9ea8"/></linearGradient><linearGradient id="lg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8d4d6"/><stop offset="100%" stop-color="#4a6070"/></linearGradient></defs><line x1="2" y1="30" x2="20" y2="30" stroke="url(#lg1)" stroke-width="3" stroke-linecap="round"/><line x1="2" y1="42" x2="24" y2="42" stroke="url(#lg1)" stroke-width="3" stroke-linecap="round"/><path d="M14 60 L26 16 L36 38" stroke="url(#lg1)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M36 38 L46 16 L58 60" stroke="url(#lg2)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="12" y1="60" x2="60" y2="60" stroke="#009d94" stroke-width="1.8" stroke-linecap="round"/><text x="72" y="22" font-family="Arial,DM Sans,sans-serif" font-weight="700" font-size="10" fill="rgba(255,255,255,0.5)" letter-spacing="3.5">GRUPO</text><text x="70" y="52" font-family="Arial Black,Arial,DM Sans,sans-serif" font-weight="900" font-size="30" fill="url(#lg1)" letter-spacing="1.5">ESCALAR</text></svg>';
+
+function rOP(){
+  var p=proposals.find(function(x){return x.id===editId;});
+  if(!p){goDash();return'';}
+  var diag=calcDiag(p);
+  var f=diag.f, ch=diag.ch, resumo=diag.resumo;
+  var ded=(p.modelo||'').toLowerCase()==='dedicado';
+  var seg=p.segmento||'';
+  var segC=CLIENTS[seg]||[];
+  var ativos=segC.filter(function(c){return ATIVOS.some(function(a){return c.toLowerCase().includes(a.toLowerCase());});});
+  var outros=segC.filter(function(c){return !ativos.includes(c);});
+  var sc=[].concat(ativos,outros).slice(0,14);
+  var val=new Date(Date.now()+30*24*3600*1000).toLocaleDateString('pt-BR');
+  var cr=p.crescimento||[];
+  var modelo=ded?'dedicado':'compartilhado';
+  var vd=VENDEDORES[p.vendedor||'andre']||VENDEDORES['andre'];
+  var propNum=p.num?'#'+String(p.num).padStart(3,'0')+(p.ver&&p.ver>1?' v'+p.ver:''):'';
+
+  // Tagline por segmento
+  var TAGLINES={
+    'Tecnologia & SaaS':'Motor de prospecção outbound para empresas de tecnologia que querem crescer com previsibilidade.',
+    'Serviços B2B & Consultoria':'Geração de oportunidades consultivas para quem vende serviço de alto valor.',
+    'Indústria & Manufatura':'Prospecção estruturada para indústrias que querem expandir sua base B2B.',
+    'Energia & Sustentabilidade':'Motor comercial para empresas de energia que precisam escalar com inteligência.',
+    'Logística & Transporte':'Prospecção ativa para empresas que querem crescer com pipeline previsível.',
+    'Jurídico & Contábil':'Geração de oportunidades para quem quer crescer sem depender de indicações.',
+    'Saúde & Bem-estar':'Motor de prospecção para empresas de saúde B2B que precisam de pipeline qualificado.'
+  };
+  var tagline=TAGLINES[seg]||'Motor de prospecção outbound para empresas B2B que querem crescer com previsibilidade.';
+
+  // ROI pergunta
+  var valorNum=0;
+  if(p.valor){var _c=p.valor.replace(/[R$\s.]/g,'').replace(',','.');valorNum=parseFloat(_c)||0;}
+  var ticketNum=0;
+  if(p.ticket){var _t=p.ticket.replace(/[R$\s.]/g,'').replace(',','.');ticketNum=parseFloat(_t)||0;}
+  var roiPergunta='Empresas que investem em prospecção estruturada param de pensar no custo e começam a pensar em quantas oportunidades estão deixando na mesa.';
+
+  // Logo cliente
+  var logoCliente='';
+  if(p.website){
+    var _d=p.website.replace(/https?:\/\//,'');
+    logoCliente='<div class="cliente-logo-wrap">'
+      +'<img src="https://www.google.com/s2/favicons?domain='+_d+'\u0026sz=128" '
+      +'style="width:60px;height:60px;object-fit:contain;" '
+      +'onerror="this.parentElement.style.display=\'none\'"></div>';
+  }
+
+  // Ícones SVG time
+  var TICONS={
+    gestor:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+    supervisor:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>',
+    cs:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    ldr:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
+    bdr:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1.5h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16.5z"/></svg>'
+  };
+
+  // SVG Salesforce e G4
+  var SF='<svg xmlns="http://www.w3.org/2000/svg" width="130" height="44" viewBox="0 0 325 110"><path d="M133.2,20.1c6.5-6.8,15.5-11,25.6-11c13.2,0,24.7,7.2,30.8,17.9c5.3-2.3,11.2-3.6,17.4-3.6c24.2,0,43.8,19.7,43.8,44c0,0.4,0,0.8,0,1.2c9.8,2,17.2,10.7,17.2,21.1c0,11.9-9.6,21.5-21.5,21.5H74.3C57.9,111.1,44.7,98,44.7,81.6c0-13.4,8.6-24.8,20.7-28.9C64.9,50.3,64.7,48,64.7,45.6C64.7,31.5,76.1,20,90.2,20c5.1,0,9.9,1.5,13.9,4.1C109.3,27.4,116.3,21.7,133.2,20.1z" fill="#00A1E0"/><text x="58" y="82" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="400" fill="white" letter-spacing="-0.5">sales<tspan font-style="italic">force</tspan></text></svg>';
+  var G4='<svg width="82" height="38" viewBox="0 0 164 76" fill="none"><rect x="1" y="13" width="30" height="30" rx="1" stroke="#1a1a1a" stroke-width="2.2" fill="none" transform="rotate(45 16 28)"/><rect x="6" y="19" width="20" height="20" rx="1" stroke="#1a1a1a" stroke-width="1.7" fill="none" transform="rotate(45 16 29)"/><text x="42" y="30" font-family="DM Sans,Arial,sans-serif" font-weight="900" font-size="24" fill="#1a1a1a" letter-spacing="-1">G4</text><text x="44" y="54" font-family="DM Sans,Arial,sans-serif" font-weight="700" font-size="16" fill="#4a90c4" letter-spacing="3">SCALE</text></svg>';
+
+  // Tabela métricas
+  var tabelaInicial=QUAL_TABELAS[modelo]['aberta'];
+  var tabelaRows=tabelaInicial.map(function(r,i){
+    var isLast=i===tabelaInicial.length-1;
+    return '<tr'+(isLast?' class="bold-row"':'')+'>'
+      +'<td>'+r[0]+'</td>'
+      +'<td style="text-align:center;"'+(isLast?' class="hi"':'')+'>'+r[1]+'</td>'
+      +'<td style="text-align:center;"'+(isLast?' class="hi"':'')+'>'+r[2]+'</td>'
+      +'<td style="text-align:center;"'+(isLast?' class="hi"':'')+'>'+r[3]+'</td>'
+      +'</tr>';
+  }).join('');
+
+  // Objetivos selecionados
+  var objSel=(p.objetivos&&p.objetivos.length)
+    ?'<div style="margin-top:9px;">'+p.objetivos.map(function(o){
+      return '<span style="font-size:11px;background:rgba(0,157,148,.08);border:1.5px solid rgba(0,157,148,.3);border-radius:3px;padding:3px 9px;color:#009d94;font-weight:600;display:inline-block;margin:2px;">'+o+'</span>';
+    }).join('')+'</div>'
+    :'';
+
+  function sec(n,t,c,alt){
+    return '<div class="ops'+(alt?' opsa':'')+'"><div class="opsh">'
+      +'<span class="opsn">'+n+'</span><div class="opsl"></div>'
+      +'<span class="opst">'+t+'</span></div>'+c+'</div>';
+  }
+  function zconn(){
+    return '<div class="z-connector"><div class="z-line"></div><div class="z-dot"></div><div class="z-line"></div></div>';
+  }
+
+  var out='';
+
+  // ── NAV ──────────────────────────────────────────────────────────────────
+  out+='<div class="nav"><div><div class="nlogo"><span>ESCALAR</span> BPO</div><div class="nsub">OnePage Executivo</div></div>'
+    +'<div style="display:flex;gap:8px;">'
+    +'<button class="sbtn" onclick="goDash()">&#8592; Dashboard</button>'
+    +'<button class="gbtn" onclick="goEdit('+p.id+')">Editar</button>'
+    +'<button class="nbtn" onclick="printPDF()">&#11015; PDF</button>'
+    +'</div></div>'
+    +'<div class="main" style="max-width:800px;"><div class="op">';
+
+  // ── CAPA ─────────────────────────────────────────────────────────────────
+  out+='<div style="background:#1f2d32;color:#fff;padding:32px 42px 26px;position:relative;">'
+    +'<div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:#009d94;"></div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;">'
+    +'<div style="font-size:10px;color:rgba(255,255,255,.36);letter-spacing:.12em;text-transform:uppercase;">'
+    +'Proposta Comercial &middot; BPO Comercial'+(propNum?' &middot; <span style="color:#009d94;font-weight:700;">'+propNum+'</span>':'')
+    +'</div>'+ESCALAR_LOGO+'</div>'
+    +logoCliente
+    +'<div style="font-size:11px;color:#009d94;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;text-align:center;">'+(seg||'')+'</div>'
+    +'<div style="font-family:\'Playfair Display\',serif;font-size:34px;font-weight:700;color:#fff;line-height:1.15;margin-bottom:10px;text-align:center;">'+(p.empresa||'&mdash;')+'</div>'
+    +'<div class="capa-tagline" style="text-align:center;margin:0 auto 18px;">'+tagline+'</div>'
+    +(p.website?'<div style="font-size:11px;color:rgba(255,255,255,.35);margin-bottom:20px;text-align:center;">'+p.website+'</div>':'')
+    +'<div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;">'
+    +'<div style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.13);border-radius:5px;padding:8px 14px;"><div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">Modelo</div><div style="font-size:13px;font-weight:600;color:#009d94;">'+(ded?'Dedicado':'Compartilhado')+'</div></div>'
+    +'<div style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.13);border-radius:5px;padding:8px 14px;"><div style="font-size:9px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;">V&aacute;lida at&eacute;</div><div style="font-size:13px;font-weight:600;color:#009d94;">'+val+'</div></div>'
+    +'</div></div>';
+
+  // ── SEC 01: Por que a Escalar ────────────────────────────────────────────
+  out+=zconn();
+  var porqueHtml='<div class="ab">9 anos de mercado B2B</div>'
+    +'<div class="res" style="margin-bottom:14px;">A Escalar é uma empresa de gente. Cada operação é conduzida de forma artesanal, com atenção genuína ao negócio do cliente — não vendemos pacotes, construímos motores comerciais sob medida, junto com você.</div>'
+    +'<div class="rg">'
+    +[['Gestão de ICP','Mapeamento e priorização dos perfis de maior valor e menor CAC'],
+      ['Prospecção ativa estruturada','Motor outbound com cadências, scripts testados e inteligência comercial'],
+      ['Execução consultiva','Time dedicado à geração de oportunidades com foco em resultado real'],
+      ['Melhoria contínua','Ajustes iterativos orientados por dados reais de operação, mês a mês']
+    ].map(function(td){return'<div class="rc"><div class="rc-t">'+td[0]+'</div><div class="rc-d">'+td[1]+'</div></div>';}).join('')
+    +'</div>';
+  out+=sec('01','<strong>Por que a Escalar</strong>',porqueHtml,true);
+
+  // ── SEC 02: Contexto mapeado ─────────────────────────────────────────────
+  out+=zconn();
+  var ctxItems=[
+    ['Faturamento anual',RLBL[p.receita]||'&mdash;'],
+    ['N&ordm; de vendedores',VLBL[p.vendedores]||'&mdash;'],
+    ['CRM atual',CNAME[p.crm]||p.crm||'&mdash;'],
+    ['Ticket m&eacute;dio',p.ticket||'&mdash;'],
+    ['Tipo de venda',TLBL[p.ticket_tipo]||'&mdash;'],
+    ['Ciclo comercial',CLBL[p.ciclo]||'&mdash;']
+  ];
+  var ctxHtml='<div class="ctx-g">'+ctxItems.map(function(kv){
+    return '<div class="ctx-i"><div class="ctx-k">'+kv[0]+'</div><div class="ctx-v">'+kv[1]+'</div></div>';
+  }).join('')+'</div>';
+  if(cr.length) ctxHtml+='<div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;font-weight:600;">Canais ativos</div><div>'+cr.map(function(c){return'<span class="op-tag">'+c+'</span>';}).join('')+'</div>';
+  out+=sec('02','Contexto mapeado',ctxHtml);
+
+  // ── SEC 03: Diagnóstico executivo ────────────────────────────────────────
+  out+=zconn();
+  var hoje='<div style="flex:1;min-width:180px;background:#fdf6f3;border:1.5px solid #e8cfc5;border-radius:5px;padding:13px 15px;">'
+    +'<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#a8543a;margin-bottom:8px;">Hoje</div>'
+    +[p.previsibilidade?'Previsibilidade '+p.previsibilidade:'',
+      p.icp?'ICP '+(p.icp==='muito_claro'?'bem definido':p.icp==='parcial'?'parcial':'não definido'):'',
+      'Sem motor de prospecção estruturado'
+    ].filter(Boolean).map(function(x){
+      return '<div style="font-size:12px;color:#555;padding-left:12px;position:relative;margin-bottom:2px;"><span style="position:absolute;left:0;color:#ccc;">&ndash;</span>'+x+'</div>';
+    }).join('')+'</div>';
+  var comE='<div style="flex:1;min-width:180px;background:#f0faf8;border:1.5px solid #b3ddd9;border-radius:5px;padding:13px 15px;">'
+    +'<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#009d94;margin-bottom:8px;">Com a Escalar</div>'
+    +['Motor de prospecção ativa e previsível','Pipeline estruturado com dados reais','ICP ativado com cadências inteligentes','Escala de oportunidades mês a mês'].map(function(x){
+      return '<div style="font-size:12px;color:#555;padding-left:12px;position:relative;margin-bottom:2px;"><span style="position:absolute;left:0;color:#009d94;font-weight:700;">&#10003;</span>'+x+'</div>';
+    }).join('')+'</div>';
+  var diagHtml='<div class="res" style="margin-bottom:13px;">'+resumo+'</div>'
+    +'<div style="display:flex;gap:10px;flex-wrap:wrap;">'+hoje
+    +'<div style="display:flex;align-items:center;font-size:18px;color:#ccc;">&#8594;</div>'+comE+'</div>';
+  if(p.objetivos&&p.objetivos.length||p.dores||p.reuniao||p.objetivo){
+    diagHtml+='<div class="rb" style="margin-top:12px;">';
+    if(objSel) diagHtml+=objSel;
+    if(p.dores) diagHtml+='<div class="rl">Dores mapeadas</div><p style="font-size:12px;color:#555;font-style:italic;margin-bottom:9px;">"'+p.dores+'"</p>';
+    if(p.reuniao) diagHtml+='<div class="rl">Pontos alinhados na reunião</div><p style="font-size:12px;color:#555;margin-bottom:9px;">'+p.reuniao+'</p>';
+    if(p.objetivo) diagHtml+='<div class="rl" style="color:#009d94;">Objetivo</div><p style="font-size:12px;color:#333;font-weight:600;">'+p.objetivo+'</p>';
+    diagHtml+='</div>';
+  }
+  out+=sec('03','Diagnóstico executivo',diagHtml);
+
+  // ── SEC 04: Pontos fortes ────────────────────────────────────────────────
+  out+=zconn();
+  var fortesHtml=f.length
+    ?f.map(function(x){return '<div class="ok"><span style="color:#009d94;font-weight:700;font-size:14px;flex-shrink:0;">&#10003;</span>'+x+'</div>';}).join('')
+    :'<p style="font-size:12px;color:#aaa;">Preencha mais dados para gerar os pontos fortes.</p>';
+  out+=sec('04','Pontos fortes',fortesHtml,true);
+
+  // ── SEC 05: Desafios ─────────────────────────────────────────────────────
+  out+=zconn();
+  var desafiosHtml=ch.length
+    ?ch.map(function(x){return '<div class="nok"><span style="color:#a8543a;font-weight:700;font-size:14px;flex-shrink:0;">&#8594;</span>'+x+'</div>';}).join('')
+    :'<p style="font-size:12px;color:#aaa;">Nenhum desafio identificado.</p>';
+  out+=sec('05','Desafios identificados',desafiosHtml);
+
+  // ── SEC 06: Time Escalar ─────────────────────────────────────────────────
+  out+=zconn();
+  var timeHtml='<div class="tcg">'
+    +'<div class="tc"><div class="tc-icon">'+TICONS.gestor+'</div><div class="tc-r">Gestor de Contas</div></div>'
+    +'<div class="tc"><div class="tc-icon">'+TICONS.supervisor+'</div><div class="tc-r">Supervisor de Operações</div></div>'
+    +'<div class="tc"><div class="tc-icon">'+TICONS.cs+'</div><div class="tc-r">Customer Success</div></div>'
+    +'<div class="tc"><div class="tc-icon">'+TICONS.ldr+'</div><div class="tc-r">LDR Tech</div></div>'
+    +'<div class="tc hi"><div class="tc-icon" style="background:rgba(255,255,255,.2);">'+TICONS.bdr+'</div><div class="tc-r">BDR '+(ded?'Dedicado':'Compartilhado')+'</div><div class="tc-sub">Ligando por você</div></div>'
+    +'</div>'
+    +'<p style="font-size:12px;color:#888;margin-top:11px;line-height:1.75;font-style:italic;">Cada profissional é cuidadosamente selecionado para o seu segmento. Aqui não existe mais um BDR — existe uma pessoa comprometida com o crescimento do seu negócio.</p>';
+  out+=sec('06','Time Escalar — quem estará ao seu lado',timeHtml,true);
+
+  // ── SEC 07: Nível de serviço ─────────────────────────────────────────────
+  out+=zconn();
+  var esforcoBlock='<div style="background:#f4f2ee;border:1.5px solid #e0dbd4;border-radius:8px;overflow:hidden;margin-bottom:16px;">'
+    +'<div style="background:#1f2d32;padding:10px 20px;text-align:center;">'
+    +'<div style="font-size:10px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.14em;">BDR '+(ded?'Dedicado':'Compartilhado')+' — entrega mensal garantida</div>'
+    +'</div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1.5px 1fr 1.5px 1fr;">'
+    +'<div style="padding:20px 16px;text-align:center;">'
+    +'<div style="font-family:\'Playfair Display\',serif;font-size:40px;font-weight:700;color:#009d94;line-height:1;">'+(ded?'400':'150')+'</div>'
+    +'<div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-top:7px;font-weight:600;">Empresas mapeadas</div>'
+    +'<div style="font-size:11px;color:#aaa;margin-top:3px;">por mês</div>'
+    +'</div>'
+    +'<div style="background:#e0dbd4;"></div>'
+    +'<div style="padding:20px 16px;text-align:center;">'
+    +'<div style="font-family:\'Playfair Display\',serif;font-size:40px;font-weight:700;color:#009d94;line-height:1;">'+(ded?'1.100':'350')+'</div>'
+    +'<div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:.08em;margin-top:7px;font-weight:600;">Esforços de conexão</div>'
+    +'<div style="font-size:11px;color:#aaa;margin-top:3px;">abordagens ativas/mês</div>'
+    +'</div>'
+    +'<div style="background:#e0dbd4;"></div>'
+    +'<div style="padding:20px 16px;text-align:center;">'
+    +'<div style="width:38px;height:38px;border-radius:50%;background:rgba(0,157,148,.12);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;">'
+    +'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#009d94" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.7 12.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1.5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
+    +'</div>'
+    +'<div style="font-size:11px;color:#009d94;font-weight:700;text-transform:uppercase;letter-spacing:.07em;">Time estruturado</div>'
+    +'<div style="font-size:11px;color:#888;margin-top:3px;">e ferramentas de mercado</div>'
+    +'</div></div></div>';
+
+  var metHtml=esforcoBlock
+    +'<div class="qual-tabs" id="qtabs-'+p.id+'">'
+    +'<div class="qual-tab on" onclick="setQual('+p.id+',\'aberta\')"><div class="qual-tab-t">Qualificação Aberta</div><div class="qual-tab-s">Poucos filtros de ICP</div></div>'
+    +'<div class="qual-tab" onclick="setQual('+p.id+',\'padrao\')"><div class="qual-tab-t">Qualificação Padrão</div><div class="qual-tab-s">Critérios equilibrados</div></div>'
+    +'<div class="qual-tab" onclick="setQual('+p.id+',\'restrita\')"><div class="qual-tab-t">Qualificação Restrita</div><div class="qual-tab-s">Critérios muito específicos</div></div>'
+    +'</div>'
+    +'<div class="qual-desc" id="qdesc-'+p.id+'">'+QUAL_DESC.aberta+'</div>'
+    +'<table class="ot"><thead><tr><th>Etapa</th><th>Cenário fechado</th><th>Cenário padrão</th><th>Cenário aberto</th></tr></thead>'
+    +'<tbody id="qtbody-'+p.id+'">'+tabelaRows+'</tbody></table>'
+    +'<div class="tnote">O que está sob nosso controle é o esforço aplicado. Uma das nossas ações é propor ajustes contínuos no discurso visando melhoria de comunicação e performance.</div>'
+    +'<div style="margin-top:13px;background:#f9f7f4;border:1.5px solid #e8e4de;border-radius:5px;padding:15px;">'
+    +'<div style="font-size:10px;font-weight:700;color:#009d94;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;">🌱 Jornada do Cliente — Kickoff ao Sucesso</div>'
+    +'<div class="jw">'
+    +'<div class="jc"><div class="jn">Kickoff</div><div class="jt">Até 20 dias</div><div class="jl">Alinhamento de Expectativas</div><div class="jl">Desenho da estratégia</div><div class="jl">Capacitação do Time</div><div class="jl">Treinamento e habilitação</div><div class="jl">Roleplays e testes</div></div>'
+    +'<div class="ja">&#8594;</div>'
+    +'<div class="jc"><div class="jn">Onboarding</div><div class="jt">Até o 3º mês</div><div class="jl">Validação da estratégia</div><div class="jl">Aprendizado da operação</div><div class="jl">Primeiros feedbacks</div><div class="jl">Primeiras oportunidades</div></div>'
+    +'<div class="ja">&#8594;</div>'
+    +'<div class="jc"><div class="jn">Ongoing</div><div class="jt">Até o 6º mês</div><div class="jl">Oportunidades sólidas</div><div class="jl">Validação das taxas</div><div class="jl">Maturidade na comunicação</div><div class="jl">Previsibilidade e PDCA</div></div>'
+    +'<div class="ja">&#8594;</div>'
+    +'<div class="jc"><div class="jn" style="color:#009d94;">Sucesso</div><div class="jt">12 meses e contando</div><div class="jl">Objetivo validado</div><div class="jl">Projeção futura</div><div class="jl">Base de pré-vendas sólida</div><div class="jl">Upsell e Crossell</div></div>'
+    +'</div></div>';
+  out+=sec('07','Nível de serviço &amp; projeção — BDR '+(ded?'Dedicado':'Compartilhado'),metHtml,true);
+
+  // ── SEC 08: Investimento ─────────────────────────────────────────────────
+  out+=zconn();
+  var invHtml='<div class="ib">'
+    +'<div class="ib-validity"><div class="ib-validity-l">Válida até</div><div class="ib-validity-v">'+val+'</div></div>'
+    +'<div class="ib-label">Investimento Mensal</div>'
+    +'<div class="ib-val">'+(p.valor||'A definir')+'</div>'
+    +'<div class="ib-sub">Ferramentas e impostos inclusos &middot; Equipe CLT pela Escalar</div>'
+    +'<div style="background:rgba(0,157,148,.08);border:1px solid rgba(0,157,148,.2);border-radius:6px;padding:14px 18px;margin-top:14px;">'
+    +'<div style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.6;font-weight:400;">'+roiPergunta+'</div>'
+    +'</div></div>';
+  out+=sec('08','Investimento',invHtml);
+
+  // ── SEC 09: Condições comerciais ─────────────────────────────────────────
+  out+=zconn();
+  var condHtml='<div class="cg">'+[
+    ['Prazo contratual','12 meses'],
+    ['Cancelamento','30 dias de aviso prévio'],
+    ['Faturamento','Mensal pós-serviço'],
+    ['Primeiro mês','50% adiantado'],
+    ['Equipe','CLT contratada pela Escalar'],
+    ['Ferramentas','Inclusas no contrato'],
+    ['Integrações','Avaliadas separadamente'],
+    ['Impostos','Incluídos']
+  ].map(function(kv){return '<div class="ci2"><div class="ck2">'+kv[0]+'</div><div class="cv2">'+kv[1]+'</div></div>';}).join('')+'</div>';
+  out+=sec('09','Condições comerciais',condHtml,true);
+
+  // ── SEC 10: Cases ────────────────────────────────────────────────────────
+  if(sc.length){
+    out+=zconn();
+    var casesHtml='<p style="font-size:12px;color:#777;line-height:1.8;margin-bottom:12px;">Ao longo da nossa trajetória, construímos operações com o mesmo cuidado artesanal. Referências em <strong style="color:#1a1a1a;">'+seg+'</strong>:</p>'
+      +'<div class="seg-title">'+seg+'</div>'
+      +'<div>'+sc.map(function(c){
+        var isA=ATIVOS.some(function(a){return c.toLowerCase().includes(a.toLowerCase());});
+        return '<span class="'+(isA?'ct-ativo':'ct')+'">'+c+'</span>';
+      }).join('')+'</div>';
+    out+=sec('10','Empresas que já escalaram com a Escalar',casesHtml);
+  }
+
+  // ── SEC 11: Próximos passos ──────────────────────────────────────────────
+  out+=zconn();
+  var passosHtml='<div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:start;gap:0;">'
+    +'<div style="text-align:center;">'
+    +'<div style="width:44px;height:44px;border-radius:50%;background:#1f2d32;color:#009d94;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-weight:700;font-size:18px;margin:0 auto 12px;">01</div>'
+    +'<div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Aprovação da proposta</div>'
+    +'<div style="font-size:11px;color:#888;line-height:1.6;">Alinhamento final e assinatura do contrato</div>'
+    +'</div>'
+    +'<div style="display:flex;align-items:center;justify-content:center;padding-top:22px;">'
+    +'<div style="height:1.5px;width:100%;background:#009d94;opacity:.35;"></div>'
+    +'</div>'
+    +'<div style="text-align:center;">'
+    +'<div style="width:44px;height:44px;border-radius:50%;background:#1f2d32;color:#009d94;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-weight:700;font-size:18px;margin:0 auto 12px;">02</div>'
+    +'<div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Onboarding comercial</div>'
+    +'<div style="font-size:11px;color:#888;line-height:1.6;">ICP, scripts e cadências — feito junto com você</div>'
+    +'</div>'
+    +'<div style="display:flex;align-items:center;justify-content:center;padding-top:22px;">'
+    +'<div style="height:1.5px;width:100%;background:#009d94;opacity:.35;"></div>'
+    +'</div>'
+    +'<div style="text-align:center;">'
+    +'<div style="width:44px;height:44px;border-radius:50%;background:#009d94;color:#fff;display:flex;align-items:center;justify-content:center;font-family:\'Playfair Display\',serif;font-weight:700;font-size:18px;margin:0 auto 12px;">03</div>'
+    +'<div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:5px;">Primeiras ligações</div>'
+    +'<div style="font-size:11px;color:#888;line-height:1.6;">Time ativo em até 20 dias após a assinatura</div>'
+    +'</div></div>';
+  out+=sec('11','Próximos passos',passosHtml,true);
+
+  // ── SEC 12: Parceiros estratégicos ───────────────────────────────────────
+  out+=zconn();
+  var parcHtml='<div style="display:flex;border:1.5px solid #e8e4de;border-radius:6px;overflow:hidden;">'
+    +'<div class="par-sf">'+SF
+    +'<div style="font-size:11px;font-weight:700;color:#1a1a1a;margin-top:8px;">CRM Partner Oficial</div>'
+    +'</div>'
+    +'<div class="par-right">'
+    +'<div class="pa" style="padding:12px 10px;">'+G4+'<div class="pa-d">Educação Estratégica</div></div>'
+    +'<div class="pa" style="padding:12px 10px;border-bottom:none;">'
+    +'<div style="background:#1a5c2e;border-radius:4px;padding:4px 11px;font-size:13px;font-weight:800;color:#fff;font-family:DM Sans,sans-serif;">Ramppy</div>'
+    +'<div class="pa-d">Sales Enablement</div></div>'
+    +'</div></div>';
+  out+=sec('12','Parceiros estratégicos',parcHtml);
+
+  // ── RODAPÉ ───────────────────────────────────────────────────────────────
+  var vendInfo=vd.nome+'<br>'+vd.email+(vd.tel?'<br>'+vd.tel:'');
+  out+='<div class="of">'
+    +'<div><div style="font-weight:700;font-size:13px;color:#fff;letter-spacing:.08em;"><span style="color:#009d94;">ESCALAR</span> BPO Comercial</div>'
+    +'<div style="font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;font-style:italic;">Uma empresa de gente.</div></div>'
+    +'<div style="font-size:10px;color:rgba(255,255,255,.5);text-align:right;line-height:1.8;">'+vendInfo+'</div>'
+    +'</div>';
+
+  out+='</div></div>';
+  return out;
+}
+
+
+function printPDF(){
+  document.querySelectorAll('.jp.open').forEach(el=>el.classList.remove('open'));
+  const ok=confirm('Para PDF perfeito:\n\n1. Clique OK\n2. Selecione: Salvar como PDF\n3. Ative: Graficos de segundo plano\n4. Margens: Minimas, Escala: 90%');
+  if(ok)window.print();
+}
+function goDash(){view='dash';re();}
+function goNew(){F=ef();step=1;view='form';re();}
+function goEdit(id){const p=proposals.find(x=>x.id===id);if(!p)return;F=JSON.parse(JSON.stringify(p));if(!Array.isArray(F.crescimento))F.crescimento=[];if(!Array.isArray(F.objetivos))F.objetivos=[];editId=id;step=1;view='form';re();}
+function goOP(id){editId=id;view='onepage';re();}
+function addDays(n){
+  const d=new Date();
+  d.setDate(d.getDate()+n);
+  return d.toISOString().split('T')[0]; // YYYY-MM-DD para input[type=date]
+}
+
+function autoFupDates(p){
+  // Só preenche se o FUP ainda não tem data definida
+  const dias=[2,5,7,15,20];
+  if(!p.fups)p.fups={};
+  dias.forEach((d,i)=>{
+    const n=i+1;
+    if(!p.fups[n])p.fups[n]={};
+    if(!p.fups[n].date){
+      p.fups[n].date=addDays(d);
+      p.fups[n].status=p.fups[n].status||'pend';
+    }
+  });
+}
+
+function setSt(id,s){
+  const p=proposals.find(x=>x.id===id);
+  if(p){
+    p.status=s;
+    // Ao marcar como enviada, sugerir datas de FUP automaticamente
+    if(s==='enviada') autoFupDates(p);
+    sv();syncToSheets(p);re();
+  }
+}
+function dupP(id){const p=proposals.find(x=>x.id===id);if(!p)return;const n=JSON.parse(JSON.stringify(p));n.id=Date.now();n.ver=(p.ver||1)+1;n.status='rascunho';n.created=fmtD();n.fups={};proposals.unshift(n);sv();re();}
+function delP(id){if(!confirm('Excluir?'))return;deleteFromSheets(id);proposals=proposals.filter(x=>x.id!==id);sv();re();}
+
+function setVendFilter(el,v){vendFilter=v;re();}
+
+function sendGmail(id){
+  const p=proposals.find(x=>x.id===id);if(!p)return;
+  const vd=VENDEDORES[p.vendedor||'andre']||VENDEDORES['andre'];
+  const propNum=p.num?'#'+String(p.num).padStart(3,'0')+(p.ver&&p.ver>1?' v'+p.ver:''):'';
+  const to=p.contato?'':'';//deixar em branco para vendedor preencher
+  const subject=encodeURIComponent(
+    'Proposta Comercial Escalar BPO'+
+    (p.empresa?' — '+p.empresa:'')+
+    (propNum?' ('+propNum+')':'')
+  );
+  const val=new Date(Date.now()+30*24*3600*1000).toLocaleDateString('pt-BR');
+  const body=encodeURIComponent(
+    'Olá'+(p.contato?', '+p.contato:'')+',\n\n'+
+    'Segue em anexo a proposta comercial da Escalar BPO'+
+    (p.empresa?' para a '+p.empresa:'')+'.\n\n'+
+    '📋 Resumo da proposta:\n'+
+    '• Modelo: '+(p.modelo?((p.modelo==='dedicado'?'BDR Dedicado':'BDR Compartilhado')):'—')+'\n'+
+    (p.valor?'• Investimento: '+p.valor+'/mês\n':'')+
+    '• Válida até: '+val+'\n\n'+
+    'Estou à disposição para esclarecer qualquer dúvida ou agendar uma conversa.\n\n'+
+    'Att,\n'+vd.nome+'\n'+
+    (vd.tel?vd.tel+'\n':'')+
+    vd.email+'\n'+
+    'grupoescalar.com.br'
+  );
+  const url='https://mail.google.com/mail/?view=cm&fs=1&to=&su='+subject+'&body='+body+'&from='+encodeURIComponent(vd.email);
+  window.open(url,'_blank');
+}
+
+
+function gerarLink(id){
+  const p=proposals.find(x=>x.id===id||x.id==id);
+  if(!p){alert('Salve a proposta na planilha antes de gerar o link (clique em Enviar Tudo).');return;}
+  // Sincronizar primeiro
+  syncToSheets(p);
+  // Gerar URL pública
+  const url=SHEETS_URL+'?id='+id;
+  // Copiar para clipboard
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(function(){
+      const btn=document.getElementById('link-btn-'+id);
+      if(btn){
+        btn.textContent='✓ Link copiado!';
+        btn.classList.add('link-copied');
+        setTimeout(function(){btn.textContent='🔗 Gerar Link';btn.classList.remove('link-copied');},3000);
+      }
+    });
+  } else {
+    // fallback
+    const el=document.createElement('textarea');
+    el.value=url;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('Link copiado: '+url);
+  }
+}
+
+function setF(k,v){F[k]=v;re();}
+function tgl(k,v){if(!F[k])F[k]=[];if(F[k].includes(v))F[k]=F[k].filter(x=>x!==v);else F[k].push(v);re();}
+function tglObj(el,v){if(!F.objetivos)F.objetivos=[];if(F.objetivos.includes(v)){F.objetivos=F.objetivos.filter(x=>x!==v);el.classList.remove('on');}else{F.objetivos.push(v);el.classList.add('on');}}
+function nextS(){step++;re();}
+function prevS(){step--;re();}
+function saveG(){
+  if(!Array.isArray(F.crescimento))F.crescimento=[];
+  if(!Array.isArray(F.objetivos))F.objetivos=[];
+  if(F.status==='enviada') autoFupDates(F);
+  const idx=proposals.findIndex(p=>p.id===F.id);
+  if(idx>=0)proposals[idx]={...F};else proposals.unshift({...F});
+  sv();syncToSheets({...F});editId=F.id;view='onepage';re();
+}
+
+re();
+</script>
+</body>
+</html>
